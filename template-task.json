@@ -2,7 +2,7 @@
     "family": "%COMPONENTE%",
     "containerDefinitions": [
         {
-            "image": "891899566293.dkr.ecr.us-east-2.amazonaws.com/%AMBIENTE%/%COMPONENTE%:%TAGBUILDECS%",
+            "image": "955218286471.dkr.ecr.%REGION%.amazonaws.com/%AMBIENTE%/%COMPONENTE%:%TAGBUILDECS%",
             "name": "%COMPONENTE%",
             "essential": true,
             "logConfiguration": {
@@ -24,7 +24,7 @@
     "tags": [
         {
           "key": "version",
-          "value": "%TAGBUILDECS%"
+          "value": "%GIT_COMMIT%"
         }
       ]
 }

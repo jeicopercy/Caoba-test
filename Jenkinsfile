@@ -116,21 +116,13 @@ stages {
         }
     }
 
-    // stage('Deploy for production') {
-    //     steps {
-    //         print params['Emisores']
-
-    //         sh '''
-    //             aws s3 cp  s3://cobre-utils/deployPrd.sh .
-    //             sh ./deployPrd.sh
-    //             EMISORESOK=`cat /etc/deployok.txt`
-    //         '''
-    //         sh """
-    //                 ${EMISORESOK}=`cat /etc/deployok.txt`
-    //         """
-
-    //     }
-    // }
+    stage('Deploy for production') {
+        steps {
+            sh '''
+                sh ./deployPrd.sh
+            '''
+        }
+    }
 }
     
     post {
