@@ -1,0 +1,30 @@
+{
+    "family": "%COMPONENTE%",
+    "containerDefinitions": [
+        {
+            "image": "891899566293.dkr.ecr.us-east-2.amazonaws.com/prod/%COMPONENTE%:%TAGBUILDECS%",
+            "name": "%COMPONENTE%",
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/%COMPONENTE%-task",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            },
+            "portMappings": [
+                {
+                    "containerPort": 8080,
+                    "hostPort": 8080
+                }
+            ]
+        }
+    ],
+    "tags": [
+        {
+          "key": "version",
+          "value": "%TAGBUILDECS%"
+        }
+      ]
+}
