@@ -49,10 +49,12 @@ stages {
           steps{
               sh '''
 
-                    docker run -it -v $(pwd):/usr/src  newtmitch/sonar-scanner:4-alpine \
+                    docker run -rm -v $(pwd):/usr/src  newtmitch/sonar-scanner:4-alpine \
                     -D sonar.host.url=http://3.18.49.92 \
+                    -D sonar.login=d3f4b3583131da7da2430ea151ba73ae9b109821 \
                     -D sonar.projectBaseDir=./public-html \
                     -D sonar.sources=. \
+                    -D sonar.projectKey=$COMPONENTE \
                     -D sonar.projectName='caoba-test'
                 '''
           }
