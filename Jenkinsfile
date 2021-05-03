@@ -48,13 +48,12 @@ stages {
     stage('SonarQube Analysis') {
           steps{
               sh '''
-                    docker run \
-                    --rm \
-                    -e SONAR_HOST_URL="http://3.18.49.92" \
-                    -e SONAR_LOGIN="e6bc5f00416ba0d792aa60e2df0ddffd6811d63c" \
-                    -v "./public-html" \
-                    -Dsonar.projectName='caoba-test' \
-                    sonarsource/sonar-scanner-cli
+
+                    docker run -it -v $(pwd):/usr/src  newtmitch/sonar-scanner:4-alpine \
+                    -D sonar.host.url=http://3.18.49.92 \
+                    -D sonar.projectBaseDir=./public-html \
+                    -D sonar.sources=. \
+                    -D sonar.projectName='caoba-test'
                 '''
           }
     }
