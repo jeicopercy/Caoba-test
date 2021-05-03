@@ -51,7 +51,7 @@ stages {
                     docker run \
                     --rm \
                     -e SONAR_HOST_URL="http://3.18.49.92" \
-                    -e SONAR_LOGIN="d3f4b3583131da7da2430ea151ba73ae9b109821" \
+                    -e SONAR_LOGIN="e6bc5f00416ba0d792aa60e2df0ddffd6811d63c" \
                     -v "./public-html" \
                     sonarsource/sonar-scanner-cli
                 '''
