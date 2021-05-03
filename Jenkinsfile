@@ -53,7 +53,7 @@ stages {
                     -e SONAR_HOST_URL="http://3.18.49.92" \
                     -e SONAR_LOGIN="e6bc5f00416ba0d792aa60e2df0ddffd6811d63c" \
                     -v "./public-html" \
-                    -D sonar.projectName='caoba-test' \
+                    -Dsonar.projectName='caoba-test' \
                     sonarsource/sonar-scanner-cli
                 '''
           }
