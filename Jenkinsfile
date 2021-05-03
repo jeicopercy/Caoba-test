@@ -49,11 +49,11 @@ stages {
           steps{
               sh '''
                     docker run --rm -v /root/.m2:/root/.m2 -v $WORKSPACE:/app -w /app \
-                    maven:3-alpine mvn sonar:sonar \
+                    sonar:sonar \
                         -Dsonar.projectKey=$COMPONENTE \
                         -Dsonar.host.url=http://sonarqube.caoba.co \
                         -Dsonar.login=d3f4b3583131da7da2430ea151ba73ae9b109821 \
-                        -Dsonar.java.binaries=./src
+                        -Dsonar.java.binaries=./public-html
                 '''
           }
     }
