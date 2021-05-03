@@ -48,12 +48,12 @@ stages {
     stage('SonarQube Analysis') {
           steps{
               sh '''
-                    docker run --rm -v /root/.m2:/root/.m2 -v $WORKSPACE:/app -w /app \
-                    sonar:sonar \
-                        -Dsonar.projectKey=$COMPONENTE \
-                        -Dsonar.host.url=http://sonarqube.caoba.co \
-                        -Dsonar.login=d3f4b3583131da7da2430ea151ba73ae9b109821 \
-                        -Dsonar.java.binaries=./public-html
+                    docker run \
+                    --rm \
+                    -e SONAR_HOST_URL="http://3.18.49.92" \
+                    -e SONAR_LOGIN="d3f4b3583131da7da2430ea151ba73ae9b109821" \
+                    -v "./public-html" \
+                    sonarsource/sonar-scanner-cli
                 '''
           }
     }
